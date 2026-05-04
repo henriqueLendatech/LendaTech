@@ -1,25 +1,213 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Site LendaTech</title>
+  <meta name="description"
+    content="LendaTech — Assistência Técnica Lendária. Conserto de celulares, e eletrônicos em geral.">
+  <meta name="theme-color" content="#3b82f6">
+
+
+  <meta property="og:title" content="LendaTech — Assistência Técnica Lendária">
+  <meta property="og:description" content="Conserto de celulares, notebooks, tablets e muito mais.">
+  <meta property="og:type" content="website">
+
+
+  <title>LendaTech — Assistência Técnica Lendária</title>
+
+  <!--fontes-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=League+Spartan:wght@700;900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header>
-    <h1>Bem-vindo ao Site LendaTech</h1>
-  </header>
+  <div class="scroll-indicator" id="scrollIndicator"></div>
 
-  <main>
-    <section>
-      <h2>Sobre</h2>
-      <p>Esta é a estrutura inicial de um template HTML5.</p>
-    </section>
-  </main>
+  <div class="site">
 
-  <footer>
-    <p>© 2026 LendaTech</p>
-  </footer>
+
+    <!--navbar fixa baixo site-->>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="#home" class="nav-item active" data-section="home">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+        <a href="#servicos" class="nav-item" data-section="servicos">
+          <i class="fas fa-tools"></i>
+          <span>Serviços</span>
+        </a>
+        <a href="#pagamento" class="nav-item" data-section="pagamento">
+          <i class="fas fa-credit-card"></i>
+          <span>Pagar</span>
+        </a>
+        <a href="#contato" class="nav-item" data-section="contato">
+          <i class="fas fa-headset"></i>
+          <span>Contato</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- principal do site -->
+    <main class="main-content">
+
+      <!-- herokk -->
+      <section id="home" class="hero">
+        <div class="status-row">
+          <div class="status-dot"></div>
+          <span class="status-txt">WhatsApp 24h | Taboão da Serra, SP</span>
+        </div>
+
+        <div class="brand">
+          <div class="brand-name">Lenda<em>Tech</em></div>
+          <div class="brand-sub">assistência técnica lendária</div>
+        </div>
+
+        <p class="hero-copy">
+          Reparos rápidos em <strong>celulares e eletrônicos no geral.</strong><br>
+          Garantia total • Peças originais • <strong> Melhor custo-benefício</strong>
+        </p>
+
+        <div class="chips">
+          <div class="chip">Concertos</div>
+          <div class="chip">Smartphones</div>
+          <div class="chip">Carregadores</div>
+          <div class="chip">Películas</div>
+          <div class="chip">Garantia</div>
+        </div>
+      </section>
+
+      <!-- serviços oferecidos -->
+      <section id="servicos" class="sec">
+        <div class="sec-label">Nossos Serviços</div>
+
+        <a class="btn" href="https://wa.me/5511984985242" target="_blank" rel="noopener">
+          <div class="btn-icon icon-green"><i class="fas fa-comments"></i></div>
+          <div class="btn-content">
+            <span class="btn-label">WhatsApp</span>
+            <span class="btn-desc">Atendimento Rápido</span>
+          </div>
+          <span class="btn-arrow">›</span>
+        </a>
+        <!--botão serviços-->
+        <a class="btn" href="https://wa.me/c/5511984985242" target="_blank" rel="noopener">
+          <div class="btn-icon icon-green"><i class="fas fa-list"></i></div>
+          <div class="btn-content">
+            <span class="btn-label">Catálogo Completo</span>
+            <span class="btn-desc">Serviços</span>
+          </div>
+          <span class="btn-arrow">›</span>
+        </a>
+        <!--botão catálogo-->
+        <a class="btn" href="https://maps.google.com/?q=Avenida cid Nelson Jordano, 592" target="_blank" rel="noopener">
+          <div class="btn-icon icon-red"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="btn-content">
+            <span class="btn-label">Nossa Localização</span>
+            <span class="btn-desc">Avenida cid Nelson Jordano, 592 • Taboão da Serra, SP</span>
+          </div>
+          <span class="btn-arrow">›</span>
+        </a>
+      </section>
+
+      <!-- pagamento -->
+      <section id="pagamento" class="sec">
+        <div class="sec-label">Pagamento</div>
+        <div class="card">
+          <div class="card-header">
+            <i class="fas fa-bolt"></i> QR Code Pix • Mercado Pago
+          </div>
+
+          <div class="inp-row">
+            <input class="inp" type="text" id="mp-valor" placeholder="R$ 250,00" min="1" step="0.01">
+          </div>
+          <div class="inp-full">
+            <input class="inp" type="text" id="mp-desc" placeholder="Serviço (ex: Troca tela iPhone 14)">
+          </div>
+
+          <button class="btn-gerar" id="btn-gerar">
+            <i class="fas fa-qrcode"></i> Gerar QR Code Pix
+          </button>
+
+          <div class="qr-wrap" id="qr-area">
+            <div class="qr-box" id="qr-img"></div>
+            <div class="qr-id" id="qr-id"></div>
+            <button class="copy-btn" id="copy-btn">
+              <i class="fas fa-copy"></i> Copiar link
+            </button>
+          </div>
+
+          <div class="status-msg" id="status-msg"></div>
+        </div>
+      </section>
+
+      <!-- contato -->
+      <section id="contato" class="sec">
+        <div class="sec-label">Contato Direto</div>
+
+        <a class="btn" href="https://instagram.com/lenda.tech" target="_blank" rel="noopener">
+          <div class="btn-icon icon-purple"><i class="fab fa-instagram"></i></div>
+          <div class="btn-content">
+            <span class="btn-label">Instagram</span>
+            <span class="btn-desc">@lenda.tech • Eletrônicos</span>
+          </div>
+          <span class="btn-arrow">›</span>
+        </a>
+
+        <a class="btn" href="tel:+551198498-5242">
+          <div class="btn-icon icon-blue"><i class="fas fa-phone"></i></div>
+          <div class="btn-content">
+            <span class="btn-label">Ligar Agora</span>
+            <span class="btn-desc">(11) 98498-5242</span>
+          </div>
+          <span class="btn-arrow">›</span>
+        </a>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <i class="fas fa-bolt"></i>
+          <span>LendaTech</span>
+        </div>
+
+        <p class="footer-tagline">
+          Assistência técnica lendária para seus dispositivos.
+          Reparos rápidos com garantia em peças originais.
+        </p>
+
+        <div class="footer-links">
+          <a href="#" class="footer-link">Garantia</a>
+          <a href="#" class="footer-link">Peças Originais</a>
+          <a href="#" class="footer-link">Orçamento Grátis</a>
+          <a href="#" class="footer-link">Melhor Preço da Região</a>
+        </div>
+
+        <div class="footer-contact">
+          <div class="contact-title">CONTATO</div>
+          <a href="https://wa.me/+551198498-5242" class="contact-phone">(11) 98498-5242</a>
+          <div class="contact-hours">Atendimento rápido • Preço justo</div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © 2026 LendaTech. Todos os direitos reservados.<br>
+        <span>CNPJ: 12.345.678/0001-99 • SP</span>
+      </div>
+    </footer>
+
+  </div>
+  <script src="script.js"></script>
 </body>
+
 </html>
