@@ -97,7 +97,7 @@ async function gerarQR() {
 
     if (data.point_of_interaction?.transaction_data?.qr_code_base64) {
       qrImg.innerHTML = `<img src="data:image/png;base64,${data.point_of_interaction.transaction_data.qr_code_base64}" alt="QR Code Pix">`;
-      paymentLink = data.point_of_interaction.transaction_data.ticket_url || '';
+      paymentLink = data.point_of_interaction.transaction_data.qr_code || '';
       qrId.textContent = `ID: ${data.id}`;
       qrArea.classList.add('show');
       mostrarStatus('✅ QR Code gerado! Válido por 30min', true);
@@ -123,7 +123,6 @@ function copiarLink() {
     mostrarStatus('❌ Gere um QR Code primeiro', false);
     return;
   }
-
   navigator.clipboard.writeText(paymentLink).then(() => {
     const originalHTML = copyBtn.innerHTML;
     copyBtn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
